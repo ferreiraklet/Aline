@@ -1,4 +1,4 @@
-# AlineDownloader file downloader automator!
+# AlineDorker
 
 ## Aline is used for donwloading files with google dorking , dowloading specified links such as dorks.
 
