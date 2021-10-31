@@ -6,15 +6,11 @@
 
 ## Dependences:
 
-First of all, You need lynx installed in your computer
-
-`sudo apt-get install lynx`
-
-`sudo pacman -Sy lynx`
-
 python3 installed
 
 `pip install argparse`
+
+`pip install google`
 
 ## How to use:
 
