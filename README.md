@@ -29,7 +29,7 @@ python3 installed
 
 ## This project is for educational porposes only! I do not support any illegal activities!.
 
-If any error in the project, talk to me immediatly
+If any error in the program, talk to me immediatly
 
           
 
