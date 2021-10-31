@@ -23,7 +23,8 @@ python3 installed
 <img src="https://cdn.discordapp.com/attachments/307281507431481344/904425879961206805/unknown.png">
 
 **Dorking**:
-<img src="https://cdn.discordapp.com/attachments/307281507431481344/904444037094862889/unknown.png">
+
+<img src="https://cdn.discordapp.com/attachments/307281507431481344/904446499038060584/unknown.png">
 
 
 ## This project is for educational porposes only! I do not support any illegal activities!.
