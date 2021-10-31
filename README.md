@@ -31,7 +31,6 @@ python3 installed
 
 If any error in the project, talk to me immediatly
 
-If something happened with the file saved, test changing the extension to .html.
           
 
 
