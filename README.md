@@ -1,6 +1,6 @@
 # AlineDownloader file downloader automator!
 
-## Aline is used for donwloading files with google dorking and dowloading specified links
+## Aline is used for donwloading files with google dorking , dowloading specified links such as dorks.
 
 <img src="https://cdn.discordapp.com/attachments/307281507431481344/904444564377591889/unknown.png">
 
@@ -14,7 +14,7 @@ python3 installed
 
 ## How to use:
 
-**To google dorks**:
+**To dork and download filetype files**:
 <img src="https://cdn.discordapp.com/attachments/307281507431481344/904425600809304155/unknown.png">
 
 **Reading files and downloading contents**:
