@@ -24,7 +24,7 @@ python3 installed
 **Reading files and downloading contents**:
 
 
-<img src="https://cdn.discordapp.com/attachments/307281507431481344/904426581097844786/unknown.png">
+<img src="https://cdn.discordapp.com/attachments/307281507431481344/904425879961206805/unknown.png">
 
 ## This project is for educational porposes only! I do not support any illegal activities!.
 
