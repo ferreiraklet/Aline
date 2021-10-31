@@ -58,7 +58,7 @@ class AlineDownloader:
         print("""
         Made by \033[1;31mF3rr3ira\033[0;0m :skull:
         GITHUB --> \033[1;31mgithub.com/ferreiraklet\033[0;0m
-        \033[1;31mAlienware\033[0;0m is a tool to download files with google dorks\n""")
+        \033[1;31mAline\033[0;0m is a tool to download files with google dorks\n""")
 
 
     def aline(self):
@@ -194,6 +194,9 @@ class AlineDownloader:
                 #sys.exit() # verifyexception
             cont = 0 
             log_save = []
+            if "+" in self.dorks:
+                self.dorks = self.dorks.replace("+"," ")
+            
             for dork in search(self.dorks, tld="com", lang="en", num=limit, start=0, stop=limit, pause=2):
                 cont += 1
                 print(f"\033[1;32m[+]\033[0;0m * {dork}")
