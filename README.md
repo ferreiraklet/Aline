@@ -26,6 +26,8 @@ python3 installed
 
 <img src="https://cdn.discordapp.com/attachments/307281507431481344/904446499038060584/unknown.png">
 
+OR -D "site:.com.br intext:...."
+
 
 ## This project is for educational porposes only! I do not support any illegal activities!.
 
