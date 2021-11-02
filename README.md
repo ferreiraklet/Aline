@@ -8,9 +8,8 @@
 
 python3 installed
 
-`pip install argparse`
+`pip install -r requirements.txt`
 
-`pip install google`
 
 ## How to use:
 
