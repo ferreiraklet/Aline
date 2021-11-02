@@ -214,6 +214,8 @@ class AlineDownloader:
         except KeyboardInterrupt:
             print("\nExiting...¯\_(ツ)_/¯ ")
             sys.exit()
+        except FileNotFoundError:
+            print("\033[1;31m[!]\033[0;0m No file was specified! No log file was created.")
 
         except Exception as ex:
             print(f"\033[1;31m[!]\033[0;0m - Something went wrong!\nError: {str(ex)}")
