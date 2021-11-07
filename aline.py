@@ -180,7 +180,7 @@ class AlineDownloader:
 
 
     def dorks_handler(self):
-        print(f"\033[1;32m[+]\033[0;0m * Starting Aline On {self.file}...\n")
+        print(f"\033[1;32m[+]\033[0;0m * Starting Aline...\n")
         try:
 
             starttime = datetime.datetime.now()
