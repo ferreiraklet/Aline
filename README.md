@@ -1,6 +1,6 @@
 # AlineDorker
 
-## Aline is used for donwloading files with google dorking , dowloading specified links such as dorks.
+## Aline is used for downloading files with google dorking , such as specified links and dorks.
 
 <img src="https://cdn.discordapp.com/attachments/307281507431481344/904444564377591889/unknown.png">
 
