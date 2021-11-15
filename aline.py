@@ -199,7 +199,7 @@ class AlineDownloader:
             
             for dork in search(self.dorks, tld="com", lang="en", num=limit, start=0, stop=limit, pause=2):
                 cont += 1
-                print(f"\033[1;32m[+]\033[0;0m * {dork}")
+                print(f"{cont} \033[1;32m[+]\033[0;0m * {dork}")
                 log_save.append(dork)
 
             print("\033[1;32m[+]\033[0;0m --> Saving log file...")
