@@ -13,7 +13,10 @@ class AlineDownloader:
     parser.add_argument("-f","--filetype", help="Filetype")
     parser.add_argument("-F","--file", help="Read a file and download containing links")
     parser.add_argument("-D","--dorks", help="Dorks")
+    parser.add_argument("-o","--output", help="Output file", required=False)
+    parser.add_argument("-r","--range", help="Range, Default 50")
     parser2 = parser.add_mutually_exclusive_group()
+    parser.add_argument("-s","-silent", help="Silent mode",action="store_true")
     parser2.add_argument("-v", "--verbose", action="store_true", help="Verbose Mode")
     args = parser.parse_args()
 
@@ -23,37 +26,40 @@ class AlineDownloader:
         self.verbose = self.args.verbose
         self.file = self.args.file
         self.dorks = self.args.dorks
+        self.outputfile = self.args.output
+        self.range = self.args.range
+        self.silent = self.args.s
 
     def tostart(self):
         print('''
-                                    
-                                  ./  \."  
-                               ./       \."  
-                                \.        \."  
+
+                                  ./  \."
+                               ./       \."
+                                \.        \."
                                   \.        \."
-                                    \.        \."  
-                                      \.        \." 
-                                      ./            \."  
-                                    ./            ____ \." 
-                                  ./                  <   \."  
-                                   \-------\             >    \." 
-                                    \=====>        ___<          \." 
-                                   ./-----/             __________ \."  
-                                    \.------\       _____   ___(_)(_\."\   
-                                      \=====>          <            ./" 
-                                    ./-----/             >        ./" 
-                                    \.               ___<       ./" 
-                                      \.                     ./" 
-                                         \.                ./" 
-                                           \.             ./" 
-                                            ./          ./" 
+                                    \.        \."
+                                      \.        \."
+                                      ./            \."
+                                    ./            ____ \."
+                                  ./                  <   \."
+                                   \-------\             >    \."
+                                    \=====>        ___<          \."
+                                   ./-----/             __________ \."
+                                    \.------\       _____   ___(_)(_\."\ 
+                                      \=====>          <            ./"
+                                    ./-----/             >        ./"
+                                    \.               ___<       ./"
+                                      \.                     ./"
+                                         \.                ./"
+                                           \.             ./"
+                                            ./          ./"
                                           ./          ./  Tool Made By -- Ferreira"
-                                        ./          ./" 
-                                      ./          ./" 
-                                    ./          ./" 
-                                     \.       ./"  
-                                      \.   ./"  
-                                        \/"\n 
+                                        ./          ./"
+                                      ./          ./"
+                                    ./          ./"
+                                     \.       ./"
+                                      \.   ./"
+                                        \/"\n
         ''')
         print("""
         Made by \033[1;31mF3rr3ira\033[0;0m :skull:
@@ -71,7 +77,7 @@ class AlineDownloader:
                 print("\n\033[1;31m[!] -\033[0;0m Specify the website's link without protocol! Exiting...")
                 sys.exit()
 
-                
+
             # files = os.popen(f"lynx --dump 'https://google.com/search?q=site:{url}+ext:{ext}' | grep '.pdf' | cut -d '=' -f2 | egrep  -v 'site|google' | sed 's/...$//'").readlines()
 
             files = []
@@ -79,7 +85,7 @@ class AlineDownloader:
             for result in search(f"site:{url} ext:{ext}", lang="en", start=0, stop=limit, pause=2,num=limit):
                 if result.endswith(f".{ext}"):
                     files.append(result)
-                
+
 
             folder = url.replace(".com","").replace("br","").replace(".gov","").replace(".","")
 
@@ -128,7 +134,7 @@ class AlineDownloader:
     def alinefile(self):
         print(f"\033[1;32m[+]\033[0;0m * Starting Aline On {self.file}...")
         try:
-                
+
             if not os.path.exists("alinescans"):
                 os.popen("mkdir alinescans")
 
@@ -180,53 +186,104 @@ class AlineDownloader:
 
 
     def dorks_handler(self):
-        print(f"\033[1;32m[+]\033[0;0m * Starting Aline...\n")
-        try:
+        if not self.silent:
+            try:
+                print(f"\033[1;32m[+]\033[0;0m * Starting Aline...")
+                starttime = datetime.datetime.now()
+                print(f"\033[1;32m[+]\033[0;0m Started Time: {starttime}\n")
 
-            starttime = datetime.datetime.now()
-            print(f"\033[1;32m[+]\033[0;0m Started Time: {starttime}")
+                if not self.range:
+                    limit = 50
+                else:
+                    limit = self.range
+                if self.outputfile:
+                    logname = str(self.outputfile)
+                else:
+                    logname = 0
+                #if limit.isdigit() == False:
+                    #print("Wrong input! Exiting...")
+                    #sys.exit() # verifyexception
+                cont = 0
+                log_save = []
+                if "+" in self.dorks:
+                    self.dorks = self.dorks.replace("+"," ")
 
-            limit = int(input("\033[1;31m[-]\033[0;0m Please specify a range for the dorks: "))
-            logname = str(input("\033[1;31m[-]\033[0;0m Please specify a name for the log file: "))
-            print("\n")
-            #if limit.isdigit() == False:
-                #print("Wrong input! Exiting...")
-                #sys.exit() # verifyexception
-            cont = 0 
-            log_save = []
-            if "+" in self.dorks:
-                self.dorks = self.dorks.replace("+"," ")
-            
-            for dork in search(self.dorks, tld="com", lang="en", num=limit, start=0, stop=limit, pause=2):
-                cont += 1
-                print(f"{cont} \033[1;32m[+]\033[0;0m * {dork}")
-                log_save.append(dork)
+                for dork in search(self.dorks, tld="com", lang="en", num=limit, start=0, stop=limit, pause=2):
+                    cont += 1
+                    print(f"{cont} \033[1;32m[+]\033[0;0m * {dork}")
+                    log_save.append(dork)
 
-            print("\033[1;32m[+]\033[0;0m --> Saving log file...")
-            with open(logname, "w") as l:
-                for item in log_save:
-                    l.write(f"{item}\n")
+                if logname != 0:
+                    try:
+                        print("\033[1;32m[+]\033[0;0m --> Saving log file...")
+                        with open(logname, "w") as l:
+                            for item in log_save:
+                                l.write(f"{item}\n")
+                    except:
+                        pass
 
-            
-            end = datetime.datetime.now()
-            print(f"\033[1;31m[-]\033[0;0m Ended Time: {end}")
+                end = datetime.datetime.now()
+                print(f"\033[1;31m[-]\033[0;0m Ended Time: {end}")
 
-        except KeyboardInterrupt:
-            print("\nExiting...¯\_(ツ)_/¯ ")
-            sys.exit()
-        except FileNotFoundError:
-            print("\033[1;31m[!]\033[0;0m No file was specified! No log file was created.")
+            except KeyboardInterrupt:
+                print("\nExiting...¯\_(ツ)_/¯ ")
+                sys.exit()
+            except FileNotFoundError:
+                print("\033[1;31m[!]\033[0;0m No file was specified! No log file was created.")
 
-        except Exception as ex:
-            print(f"\033[1;31m[!]\033[0;0m - Something went wrong!\nError: {str(ex)}")
-            sys.exit()
+            except Exception as ex:
+                print(f"\033[1;31m[!]\033[0;0m - Something went wrong!\nError: {str(ex)}")
+                sys.exit()
+
+        else:
+            try:
+
+
+                if not self.range:
+                    limit = 50
+                else:
+                    limit = self.range
+                if self.outputfile:
+                    logname = str(self.outputfile)
+                else:
+                    logname = 0
+                #if limit.isdigit() == False:
+                    #print("Wrong input! Exiting...")
+                    #sys.exit() # verifyexception
+                cont = 0
+                log_save = []
+                if "+" in self.dorks:
+                    self.dorks = self.dorks.replace("+"," ")
+
+                for dork in search(self.dorks, tld="com", lang="en", num=limit, start=0, stop=limit, pause=2):
+                    cont += 1
+                    log_save.append(dork)
+
+                if logname != 0:
+                    try:
+                        with open(logname, "w") as l:
+                            for item in log_save:
+                                l.write(f"{item}\n")
+                    except:
+                        pass
+                print("\033[1;32m[+]\033[0;0m Finished!")
+
+            except KeyboardInterrupt:
+                print("\nExiting...¯\_(ツ)_/¯ ")
+                sys.exit()
+            except FileNotFoundError:
+                print("\033[1;31m[!]\033[0;0m No file was specified! No log file was created.")
+
+            except Exception as ex:
+                print(f"\033[1;31m[!]\033[0;0m - Something went wrong!\nError: {str(ex)}")
+                sys.exit()
 
 if len(sys.argv) <= 1:
-    print("""usage: aline.py [-h] [-d DOMAIN] [-f FILETYPE] [-F FILE] [-D DORKS] [-v]
+    print("""usage: aline.py [-h] [-d DOMAIN] [-f FILETYPE] [-F FILE] [-D DORKS] [-o OUTPUT] [-r RANGE] [-s S] [-v]
 
 Aline file downloader automator!
 
-options:
+optional arguments:
   -h, --help            show this help message and exit
   -d DOMAIN, --domain DOMAIN
                         Target's domain
@@ -235,6 +292,11 @@ options:
   -F FILE, --file FILE  Read a file and download containing links
   -D DORKS, --dorks DORKS
                         Dorks
+  -o OUTPUT, --output OUTPUT
+                        Output file
+  -r RANGE, --range RANGE
+                        Range, Default 50
+  -s S, -silent S       Silent mode
   -v, --verbose         Verbose Mode""")
     sys.exit()
 
@@ -243,7 +305,6 @@ options:
     #sys.exit()
 
 A = AlineDownloader()
-A.tostart()
 
 if A.domain and A.filetype:
     A.aline()
@@ -251,15 +312,18 @@ if A.domain and A.filetype:
 elif A.file:
     A.alinefile()
 
-elif A.dorks:
+elif A.dorks and not A.silent:
+    A.tostart()
+    A.dorks_handler()
+elif A.dorks and A.silent:
     A.dorks_handler()
 
 else:
-    print("""usage: aline.py [-h] [-d DOMAIN] [-f FILETYPE] [-F FILE] [-D DORKS] [-v]
+    print("""usage: aline.py [-h] [-d DOMAIN] [-f FILETYPE] [-F FILE] [-D DORKS] [-o OUTPUT] [-r RANGE] [-s S] [-v]
 
 Aline file downloader automator!
 
-options:
+optional arguments:
   -h, --help            show this help message and exit
   -d DOMAIN, --domain DOMAIN
                         Target's domain
@@ -268,6 +332,11 @@ options:
   -F FILE, --file FILE  Read a file and download containing links
   -D DORKS, --dorks DORKS
                         Dorks
+  -o OUTPUT, --output OUTPUT
+                        Output file
+  -r RANGE, --range RANGE
+                        Range, Default 50
+  -s S, -silent S       Silent mode
   -v, --verbose         Verbose Mode""")
 
 
