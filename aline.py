@@ -27,7 +27,7 @@ class AlineDownloader:
         self.file = self.args.file
         self.dorks = self.args.dorks
         self.outputfile = self.args.output
-        self.range = self.args.range
+        self.range = int(self.args.range)
         self.silent = self.args.s
 
     def tostart(self):
@@ -243,6 +243,7 @@ class AlineDownloader:
                     limit = 50
                 else:
                     limit = self.range
+
                 if self.outputfile:
                     logname = str(self.outputfile)
                 else:
@@ -315,6 +316,7 @@ elif A.file:
 elif A.dorks and not A.silent:
     A.tostart()
     A.dorks_handler()
+
 elif A.dorks and A.silent:
     A.dorks_handler()
 
