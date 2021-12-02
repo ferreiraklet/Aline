@@ -310,6 +310,7 @@ class AlineDownloader:
             with open(log_name,"w") as lg:
                 for text in log:
                     lg.write(f"{text}\n")
+                    
             print("\033[1;32mFinished! (ツ)\033[0;0m")
 
 
