@@ -15,6 +15,7 @@ class AlineDownloader:
     parser.add_argument("-D","--dorks", help="Dorks")
     parser.add_argument("-o","--output", help="Output file", required=False)
     parser.add_argument("-r","--range", help="Range, Default 50")
+    parser.add_argument("-l","--links", help="large dork with file")
     parser2 = parser.add_mutually_exclusive_group()
     parser.add_argument("-s","-silent", help="Silent mode",action="store_true")
     parser2.add_argument("-v", "--verbose", action="store_true", help="Verbose Mode")
@@ -27,8 +28,10 @@ class AlineDownloader:
         self.file = self.args.file
         self.dorks = self.args.dorks
         self.outputfile = self.args.output
-        self.range = int(self.args.range)
+        if self.args.range:
+            self.range = int(self.args.range)
         self.silent = self.args.s
+        self.links = self.args.links
 
     def tostart(self):
         print('''
@@ -279,6 +282,50 @@ class AlineDownloader:
                 print(f"\033[1;31m[!]\033[0;0m - Something went wrong!\nError: {str(ex)}")
                 sys.exit()
 
+    def ldorks(self):
+        # print("Starting...\n")
+        self.tostart()
+
+        try:
+            log = []
+            cont = 0
+            dork_range = int(input("\033[1;31m[-]\033[0;0m Please specify a limit, Default = 50: "))
+            log_name = str(input("\033[1;31m[-]\033[0;0m Please specify a log file: "))
+            dork = str(input("\033[1;31m[-]\033[0;0m Put the dorks here and use 'site:*' for the targets: "))
+
+            with open(self.links,"r") as d:
+                for link in d.readlines():
+                    link = link.replace("\n","").replace("http://","").replace("https://","")
+
+
+                    if "*" in dork:
+                        dork = dork.replace("*",link)
+
+                    # print(dork)
+
+                    for dorks in search(dork, tld="com", lang="en", num=dork_range, start=0, stop=dork_range, pause=2):
+                        cont += 1
+                        log.append(dorks)
+
+            with open(log_name,"w") as lg:
+                for text in log:
+                    lg.write(f"{text}\n")
+            print("\033[1;32mFinished! (ツ)\033[0;0m")
+
+
+
+
+
+        except Exception as e:
+            print(f"Something happened!\nError: {str(e)}");exit(1)
+
+        except KeyboardInterrupt:
+                print("\nExiting...¯\_(ツ)_/¯ ")
+                sys.exit()
+        except FileNotFoundError:
+            print("\033[1;31m[!]\033[0;0m No file was specified! No log file was created.");exit(1)
+                   
+
 if len(sys.argv) <= 1:
     print("""usage: aline.py [-h] [-d DOMAIN] [-f FILETYPE] [-F FILE] [-D DORKS] [-o OUTPUT] [-r RANGE] [-s S] [-v]
 
@@ -319,6 +366,9 @@ elif A.dorks and not A.silent:
 
 elif A.dorks and A.silent:
     A.dorks_handler()
+
+elif A.links:
+    A.ldorks()
 
 else:
     print("""usage: aline.py [-h] [-d DOMAIN] [-f FILETYPE] [-F FILE] [-D DORKS] [-o OUTPUT] [-r RANGE] [-s S] [-v]
