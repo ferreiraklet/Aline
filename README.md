@@ -13,16 +13,20 @@ python3 installed
 
 ## How to use:
 
-**To Download content within links inside file**:
+**To Download contents with dorks**:
 <img src="https://cdn.discordapp.com/attachments/307281507431481344/904425600809304155/unknown.png">
 
-**Reading files and downloading contents**:
+**Reading files and downloading content within links inside**:
 
-
-<img src="https://cdn.discordapp.com/attachments/307281507431481344/904425879961206805/unknown.png">
+<img src="https://media.discordapp.net/attachments/876919540682989609/916780291639611452/unknown.png?width=591&height=79">
 
 **Dorking**:
 
+```
+python3 aline.py -D "site:.com ext:txt" -o outputfile.txt -r 20 -s
+-r = range for search
+-s = silent mode
+```
 
 
 ## This project is for educational porposes only! I do not support any illegal activities!.
