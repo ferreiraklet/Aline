@@ -7,7 +7,7 @@
 
 <h3 align="center">Aline's main purpose is to make <a href="https://en.wikipedia.org/wiki/Google_hacking">Google Dorks</a> while, at the same time, be able to download the data recieved from those determined searches.</h3>
 
-<center><img src="https://cdn.discordapp.com/attachments/307281507431481344/904444564377591889/unknown.png"></center>
+<center><img src="https://media.discordapp.net/attachments/876919540682989609/916806881975091220/unknown.png?width=508&height=341"></center>
 
 ## - Installation & Requirements:
 ```
@@ -23,11 +23,13 @@
 ## - Usage:
 
 **To Download contents with dorks**:
-<img src="https://cdn.discordapp.com/attachments/307281507431481344/904425600809304155/unknown.png">
+Ex:
+<img src="https://media.discordapp.net/attachments/876919540682989609/916809070361600010/unknown.png?width=732&height=107">
 
+<br>
 **Reading files and downloading content within links inside**:
 
-<img src="https://media.discordapp.net/attachments/876919540682989609/916795904944660510/unknown.png?width=472&height=63">
+<img src="https://cdn.discordapp.com/attachments/876919540682989609/916809852607684628/unknown.png">
 
 **Dorking**:
 ```markdown
