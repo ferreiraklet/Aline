@@ -31,7 +31,7 @@ class AlineDownloader:
         if self.args.range:
             self.range = int(self.args.range)
         else:
-            self.range = 0
+            self.range = False
         self.silent = self.args.s
         self.links = self.args.links
 
@@ -148,6 +148,7 @@ class AlineDownloader:
             files_list.append(f.read())
             f.close()
 
+
             time.sleep(1)
             os.chdir("alinescans")
 
@@ -161,20 +162,21 @@ class AlineDownloader:
             # withopen
 
             for pdf in files_list:
+            
                 cont += 1
-                pdf = pdf.replace("\n","")
                 if self.verbose:
                     print(f"\033[1;32m[+]\033[0;0m Downloading --> {pdf}")
+                # pdfname.replace(pdfname[-3],"")
+                pdfname = pdf.replace("http://","").replace("https://","").replace("/","")
 
-                pdfname = pdf.replace(".com","").replace("br","").replace(".gov","").replace(".","").replace("http","").replace("https","").replace("://","").replace("/","")
-
-                r = requests.get(pdf, allow_redirects=True, headers=headers)
+                r = requests.get(pdf, headers=headers)
                 data = r.content
 
                 if r.status_code != 200:
                     print(f"\033[1;31m[!]\033[0;0m Download failed! Code: {r.status_code} -- {pdf}")
+                    continue
                 else:
-                    with open(f"{pdfname[6:]}{cont}.{pdfname[-3:]}", "wb") as l:
+                    with open(f"{pdfname}{cont}.{pdfname[-3:]}", "wb") as l:
                         l.write(data)
 
             end = datetime.datetime.now()
@@ -196,7 +198,7 @@ class AlineDownloader:
                 print(f"\033[1;32m[+]\033[0;0m * Starting Aline...")
                 starttime = datetime.datetime.now()
                 print(f"\033[1;32m[+]\033[0;0m Started Time: {starttime}\n")
-
+            
                 if not self.range:
                     limit = 50
                 else:
@@ -263,6 +265,7 @@ class AlineDownloader:
 
                 for dork in search(self.dorks, tld="com", lang="en", num=limit, start=0, stop=limit, pause=2):
                     cont += 1
+                    print(dork)
                     log_save.append(dork)
 
                 if logname != 0:
@@ -307,12 +310,13 @@ class AlineDownloader:
 
                     for dorks in search(dork, tld="com", lang="en", num=dork_range, start=0, stop=dork_range, pause=2):
                         cont += 1
+                        print(dorks)
                         log.append(dorks)
 
             with open(log_name,"w") as lg:
                 for text in log:
                     lg.write(f"{text}\n")
-                    
+
             print("\033[1;32mFinished! (ツ)\033[0;0m")
 
 
