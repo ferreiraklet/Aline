@@ -1,39 +1,62 @@
-# AlineDorker
+<h1 align="center">Aline</h1> <br>
 
-## Aline it's main purpose is for dorks, but it can also be used to download content within links stored in a file.
+<p align="center">
+  <a href="#--usage">Usage</a> •
+  <a href="#--installation--requirements">Installation</a>
+</p>
 
 <img src="https://cdn.discordapp.com/attachments/307281507431481344/904444564377591889/unknown.png">
 
-## Dependences:
+## - Installation & Requirements:
+```
+> git clone https://github.com/ferreiraklet/aline.git <br>
 
-python3 installed
+> cd Aline/ <br>
 
-`pip install -r requirements.txt`
+> pip3 install -r requirements.txt <br>
+```
+<br>
 
 
-## How to use:
+## - Usage:
 
 **To Download contents with dorks**:
 <img src="https://cdn.discordapp.com/attachments/307281507431481344/904425600809304155/unknown.png">
 
 **Reading files and downloading content within links inside**:
 
-<img src="https://media.discordapp.net/attachments/876919540682989609/916780291639611452/unknown.png?width=591&height=79">
+<img src="https://media.discordapp.net/attachments/876919540682989609/916795904944660510/unknown.png?width=472&height=63">
 
 **Dorking**:
+```markdown
+Usage: python3 aline.py -D "site:.com ext:txt" -o outputfile.txt -r 20 -s
 
+Help pannel:
+  -h, --help            :: Show this help message and exit
+  
+  -d DOMAIN, --domain DOMAIN
+                        :: Target's domain
+
+  -f FILETYPE, --filetype FILETYPE
+                        :: Filetype
+
+  -F FILE, --file FILE  
+                        :: Read a file and download containing links
+
+  -D DORKS, --dorks DORKS
+                        :: Dorks
+
+  -o OUTPUT, --output OUTPUT
+                        :: Output file
+
+  -r RANGE, --range RANGE
+                        :: Range, Default 50
+  -s, -silent           :: Silent mode
 ```
-python3 aline.py -D "site:.com ext:txt" -o outputfile.txt -r 20 -s
--r = range for search
--s = silent mode
-```
+<br>
+
 
 
 ## This project is for educational porposes only! I do not support any illegal activities!.
 
 If any error in the program, talk to me immediatly. This tool is supposed to work in linux as well as in windows.
-
-          
-
-
-
