@@ -30,6 +30,8 @@ class AlineDownloader:
         self.outputfile = self.args.output
         if self.args.range:
             self.range = int(self.args.range)
+        else:
+            self.range = 0
         self.silent = self.args.s
         self.links = self.args.links
 
