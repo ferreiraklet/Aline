@@ -11,11 +11,11 @@
 
 ## - Installation & Requirements:
 ```
-> git clone https://github.com/ferreiraklet/aline.git <br>
+> git clone https://github.com/ferreiraklet/aline.git
 
-> cd Aline/ <br>
+> cd Aline/
 
-> pip3 install -r requirements.txt <br>
+> pip3 install -r requirements.txt
 ```
 <br>
 
