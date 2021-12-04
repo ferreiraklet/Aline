@@ -35,34 +35,22 @@ class AlineDownloader:
 
     def tostart(self):
         print('''
-
-                                  ./  \."
-                               ./       \."
-                                \.        \."
-                                  \.        \."
-                                    \.        \."
-                                      \.        \."
-                                      ./            \."
-                                    ./            ____ \."
-                                  ./                  <   \."
-                                   \-------\             >    \."
-                                    \=====>        ___<          \."
-                                   ./-----/             __________ \."
-                                    \.------\       _____   ___(_)(_\."\ 
-                                      \=====>          <            ./"
-                                    ./-----/             >        ./"
-                                    \.               ___<       ./"
-                                      \.                     ./"
-                                         \.                ./"
-                                           \.             ./"
-                                            ./          ./"
-                                          ./          ./  Tool Made By -- Ferreira"
-                                        ./          ./"
-                                      ./          ./"
-                                    ./          ./"
-                                     \.       ./"
-                                      \.   ./"
-                                        \/"\n
+                
+      　　　　　　　　　　　　　　　＿__
+　　　　　　　　　　　　　,.．　'"´´　.　 ｀` ヽ ､
+　　　　　　　　　　 ,．'´　　　　　　　　　　　　 ｀ヽ、
+　　　　　　　　 ,. '´　／.　　　　　　　　　　　　 ,.◎ヽ､
+　　　　　　　 /　　/　　　　　 　 ,　　　 /　　　ヽ｀ヽ、◎
+　　　　　　 //　 /　　　　 ,.　　ｲ　　　/　 l　　　｀`‐ '´、
+　　　　　　i/i　 .i 　.i　　 ｲ __ /i　 　 /l　 ﾊ 　 i　　　 i .i
+　　　　　　l i　 ｨ.　 |-‐/'l´　/ .|　　/｀|`7 ‐i- /　　　 ﾄ i
+　　　　 　 !　i .i､. 　i /=,=!='= .| .／ ='='==,'=/i　　　 .i i.i
+　　　　　　　 ヽ!|　 .`i　諏訪i　!´.　　!神ﾄﾘ　/　./　 / l,'
+　　　　　　　　　|　i.　!　`=='　　　　　`==´ ./　ｲ／/ |
+　　　　　　　　　!　.i ヽ`_､""　　'　　　""　/,.ｲ＿./.　 !
+.　　　　　　　　 i　　i.　ヽ､　　 i￣￣i　　 ,.ｲ /￣/　　 i
+　　　　　　　　 i　　.| .|　　｀ i ､`_‐_´ ｨ_´.　 ,!==/　　　.i
+        
         ''')
         print("""
         Made by \033[1;31mF3rr3ira\033[0;0m :skull:
@@ -74,7 +62,7 @@ class AlineDownloader:
         url = self.domain
         ext = self.filetype
 
-        print("\033[1;32m[+]\033[0;0m * Starting Aline...")
+        print("\033[0;34m[*] - \033[0;0mStarting Aline...")
         try:
             if url.startswith("http"):
                 print("\n\033[1;31m[!] -\033[0;0m Specify the website's link without protocol! Exiting...")
@@ -138,7 +126,7 @@ class AlineDownloader:
             print(f"\033[1;31m[-]\033[0;0m Ended Time: {end}")
 
         except KeyboardInterrupt:
-            print("\nExiting...¯\_(ツ)_/¯ ")
+            print("\nExiting... ¯\_(ツ)_/¯ ")
             sys.exit()
 
         except Exception as ex:
@@ -147,7 +135,7 @@ class AlineDownloader:
 
 
     def alinefile(self):
-        print(f"\033[1;32m[+]\033[0;0m * Starting Aline On {self.file}...")
+        print(f"\033[0;34m[*] - \033[0;0mStarting Aline On {self.file}...")
         try:
 
             if not os.path.exists("logs"):
@@ -188,7 +176,7 @@ class AlineDownloader:
             for pdf in files_list:
                 pdf = pdf.replace("\n","")
                 cont += 1
-                print(f"\033[1;32m[+]\033[0;0m Downloading -> {pdf}")
+                print(f"\033[1;32m[+]\033[0;0m Downloading [{pdf}]")
                 pdfname = pdf.replace("http://","").replace("https://","").replace("/","*")
                 # print(pdfname)
 
@@ -220,7 +208,7 @@ class AlineDownloader:
     def dorks_handler(self):
         if not self.silent:
             try:
-                print(f"\033[1;32m[+]\033[0;0m * Starting Aline...")
+                print(f"\033[0;34m[*] - \033[0;0m Starting Aline...")
                 starttime = datetime.datetime.now()
                 print(f"\033[1;32m[+]\033[0;0m Started Time: {starttime}\n")
             
@@ -247,7 +235,7 @@ class AlineDownloader:
 
                 if logname != 0:
                     try:
-                        print("\033[1;32m[+]\033[0;0m --> Saving log file...")
+                        print("\n\033[1;32m[+]\033[0;0m Saving log file...")
                         with open(logname, "w") as l:
                             for item in log_save:
                                 l.write(f"{item}\n")
@@ -258,7 +246,7 @@ class AlineDownloader:
                 print(f"\033[1;31m[-]\033[0;0m Finished! (ツ) Ended Time: {end}")
 
             except KeyboardInterrupt:
-                print("\nExiting...¯\_(ツ)_/¯ ")
+                print("\nExiting...¯\_(ツ)_/¯")
                 sys.exit()
             except FileNotFoundError:
                 print("\033[1;31m[!]\033[0;0m No file was specified! No log file was created.")
