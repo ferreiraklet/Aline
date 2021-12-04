@@ -31,8 +31,7 @@ python3 aline.py -D "site:.com ext:txt" -o outputfile.txt -r 20 -s
 
 ## This project is for educational porposes only! I do not support any illegal activities!.
 
-If any error in the program, talk to me immediatly
-OBS: This tool works for linux only.
+If any error in the program, talk to me immediatly. This tool is supposed to work in linux as well as in windows.
 
           
 
