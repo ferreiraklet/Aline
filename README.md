@@ -7,7 +7,7 @@
 
 <h3 align="center">Aline's main purpose is to make <a href="https://en.wikipedia.org/wiki/Google_hacking">Google Dorks</a> while, at the same time, be able to download the data recieved from those determined searches.</h3>
 
-<img align="center" src="https://media.discordapp.net/attachments/876919540682989609/916806881975091220/unknown.png?width=508&height=341"</img>
+<img align="center" src="https://media.discordapp.net/attachments/876919540682989609/916806881975091220/unknown.png?width=508&height=341">
 
 ## - Installation & Requirements:
 ```
