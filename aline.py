@@ -17,13 +17,13 @@ class AlineDownloader:
     parser.add_argument("-r","--range", help="Range, Default 50")
     parser2 = parser.add_mutually_exclusive_group()
     parser.add_argument("-s","-silent", help="Silent mode",action="store_true")
-    parser2.add_argument("-v", "--verbose", action="store_true", help="Verbose Mode")
+    # parser2.add_argument("-v", "--verbose", action="store_true", help="Verbose Mode")
     args = parser.parse_args()
 
     def __init__(self):
         self.domain = self.args.domain
         self.filetype = self.args.filetype
-        self.verbose = self.args.verbose
+        # self.verbose = self.args.verbose
         self.file = self.args.file
         self.dorks = self.args.dorks
         self.outputfile = self.args.output
@@ -90,7 +90,7 @@ class AlineDownloader:
                     files.append(result)
 
 
-            folder = url.replace(".com","").replace("br","").replace(".gov","").replace(".","")
+            folder = url.replace(".","")
 
             if not os.path.exists(folder):
                 os.popen(f"mkdir {folder}")
@@ -118,20 +118,18 @@ class AlineDownloader:
             "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:45.0) Gecko/20100101 Firefox/45.0",
             "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0"]
             random.shuffle(user_agents)
-            headers = {"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "User-Agent": user_agents[0]}
+            headers = {"User-Agent": user_agents[0]}
 
             for file in files:
 
                 file = file.replace("\n","")
                 cont += 1
-                if self.verbose:
-                    print(f"\033[1;32m[+]\033[0;0m Downloading --> {file}")
+                print(f"\033[1;32m[+]\033[0;0m Downloading --> {file}")
 
                 r = requests.get(file, headers=headers)
                 data = r.content
                 if r.status_code != 200:
-                    if self.verbose:
-                        print(f"\033[1;31m[!]\033[0;0m Download failed! Code: {r.status_code} -- {file}")
+                    print(f"\033[1;31m[!]\033[0;0m Download failed! Code: {r.status_code} -- {file}")
                 else:
                     with open(f"{url}{cont}.{ext}", "wb") as l:
                         l.write(data)
@@ -152,17 +150,17 @@ class AlineDownloader:
         print(f"\033[1;32m[+]\033[0;0m * Starting Aline On {self.file}...")
         try:
 
-            if not os.path.exists("alinescans"):
-                os.popen("mkdir alinescans")
+            if not os.path.exists("logs"):
+                os.popen("mkdir logs")
 
-            files_list = []
+            # files_list = []
             f = open(self.file,"r")
-            files_list.append(f.read())
+            files_list = f.readlines()
             f.close()
 
 
             time.sleep(1)
-            os.chdir("alinescans")
+            os.chdir("logs")
 
             cont = 0
             starttime = datetime.datetime.now()
@@ -184,25 +182,26 @@ class AlineDownloader:
             "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:45.0) Gecko/20100101 Firefox/45.0",
             "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0"]
             random.shuffle(user_agents)
-            headers = {"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "User-Agent": user_agents[0]}
+            headers = {"User-Agent": user_agents[0]}
             # withopen
 
             for pdf in files_list:
-            
+                pdf = pdf.replace("\n","")
                 cont += 1
-                if self.verbose:
-                    print(f"\033[1;32m[+]\033[0;0m Downloading --> {pdf}")
-                # pdfname.replace(pdfname[-3],"")
-                pdfname = pdf.replace("http://","").replace("https://","").replace("/","")
+                print(f"\033[1;32m[+]\033[0;0m Downloading -> {pdf}")
+                pdfname = pdf.replace("http://","").replace("https://","").replace("/","*")
+                # print(pdfname)
 
-                r = requests.get(pdf, headers=headers)
+                r = requests.get(pdf, headers=headers, allow_redirects=True)
                 data = r.content
 
                 if r.status_code != 200:
                     print(f"\033[1;31m[!]\033[0;0m Download failed! Code: {r.status_code} -- {pdf}")
+                    # print(r.content)
                     continue
                 else:
-                    with open(f"{pdfname}{cont}.{pdfname[-3:]}", "wb") as l:
+                    # print(f"{pdfname}{cont}.{pdfname[-3:]}")
+                    with open(f"{pdfname}", "wb") as l:
                         l.write(data)
 
             end = datetime.datetime.now()
@@ -307,7 +306,7 @@ class AlineDownloader:
                 random.shuffle(user_agents)
                 for dork in search(self.dorks, tld="com", lang="en", num=limit, start=0, stop=limit, pause=2, user_agent=user_agents[0]):
                     cont += 1
-                    print(dork)
+                    # print(dork)
                     log_save.append(dork)
 
                 if logname != 0:
