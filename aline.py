@@ -16,7 +16,7 @@ class AlineDownloader:
     parser.add_argument("-o","--output", help="Output file", required=False)
     parser.add_argument("-r","--range", help="Range, Default 50")
     parser2 = parser.add_mutually_exclusive_group()
-    parser.add_argument("-s","-silent", help="Silent mode",action="store_true")
+    parser2.add_argument("-s","-silent", help="Silent mode",action="store_true")
     # parser2.add_argument("-v", "--verbose", action="store_true", help="Verbose Mode")
     args = parser.parse_args()
 
@@ -389,13 +389,9 @@ optional arguments:
                         Output file
   -r RANGE, --range RANGE
                         Range, Default 50
-  -s, -silent           Silent mode
-  -v, --verbose         Verbose Mode""")
+  -s, -silent           Silent mode""")
     sys.exit()
 
-#if os.getuid() != 0:
-    #print("\033[1;31m[!]\033[0;0m --> Need to run as root! Exiting... ¯\_(ツ)_/¯")
-    #sys.exit()
 
 A = AlineDownloader()
 
