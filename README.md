@@ -28,6 +28,7 @@ Ex:
 <img src="https://media.discordapp.net/attachments/876919540682989609/916809070361600010/unknown.png?width=732&height=107">
 
 <br>
+
 **Reading files and downloading content within links inside**:
 
 <img src="https://cdn.discordapp.com/attachments/876919540682989609/916809852607684628/unknown.png">
