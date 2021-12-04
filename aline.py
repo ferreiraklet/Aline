@@ -88,7 +88,7 @@ class AlineDownloader:
 
             cont = 0
             starttime = datetime.datetime.now()
-            print(f"\033[1;32m[+]\033[0;0m Started Time: {starttime}")
+            print(f"\033[95m[+] - \033[0;0m Started Time: {starttime}")
 
             user_agents = [
             "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:38.0) Gecko/20100101 Firefox/38.0",
@@ -112,7 +112,7 @@ class AlineDownloader:
 
                 file = file.replace("\n","")
                 cont += 1
-                print(f"\033[1;32m[+]\033[0;0m Downloading --> {file}")
+                print(f"\033[95m[+]\033[0;0m Downloading --> {file}")
 
                 r = requests.get(file, headers=headers)
                 data = r.content
@@ -152,7 +152,7 @@ class AlineDownloader:
 
             cont = 0
             starttime = datetime.datetime.now()
-            print(f"\033[1;32m[+]\033[0;0m Started Time: {starttime}")
+            print(f"\033[95m[+]\033[0;0m Started Time: {starttime}")
 
             user_agents = [
             "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:38.0) Gecko/20100101 Firefox/38.0",
@@ -176,7 +176,7 @@ class AlineDownloader:
             for pdf in files_list:
                 pdf = pdf.replace("\n","")
                 cont += 1
-                print(f"\033[1;32m[+]\033[0;0m Downloading [{pdf}]")
+                print(f"\033[95m[+]\033[0;0m Downloading [{pdf}]")
                 pdfname = pdf.replace("http://","").replace("https://","").replace("/","*")
                 # print(pdfname)
 
@@ -210,7 +210,7 @@ class AlineDownloader:
             try:
                 print(f"\033[0;34m[*] - \033[0;0m Starting Aline...")
                 starttime = datetime.datetime.now()
-                print(f"\033[1;32m[+]\033[0;0m Started Time: {starttime}\n")
+                print(f"\033[95m[+]\033[0;0m Started Time: {starttime}\n")
             
                 if not self.range:
                     limit = 50
@@ -230,12 +230,12 @@ class AlineDownloader:
 
                 for dork in search(self.dorks, tld="com", lang="en", num=limit, start=0, stop=limit, pause=2):
                     cont += 1
-                    print(f"{cont} \033[1;32m[+]\033[0;0m * {dork}")
+                    print(f"{cont} \033[95m[+] - \033[0;0m{dork}")
                     log_save.append(dork)
 
                 if logname != 0:
                     try:
-                        print("\n\033[1;32m[+]\033[0;0m Saving log file...")
+                        print("\n\033[95m[+]\033[0;0m Saving log file...")
                         with open(logname, "w") as l:
                             for item in log_save:
                                 l.write(f"{item}\n")
@@ -304,7 +304,7 @@ class AlineDownloader:
                                 l.write(f"{item}\n")
                     except:
                         pass
-                print("\033[1;32m[+]\033[0;0m Finished! (ツ)")
+                print("\033[95m[+]\033[0;0m Finished! (ツ)")
 
             except KeyboardInterrupt:
                 print("\nExiting...¯\_(ツ)_/¯ ")
