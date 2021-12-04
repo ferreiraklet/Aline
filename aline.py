@@ -361,9 +361,6 @@ class AlineDownloader:
             print("\033[1;32mFinished! (ツ)\033[0;0m")
 
 
-
-
-
         except Exception as e:
             print(f"Something happened!\nError: {str(e)}");exit(1)
 
@@ -436,7 +433,6 @@ optional arguments:
                         Output file
   -r RANGE, --range RANGE
                         Range, Default 50
-  -s, -silent           Silent mode
-  -v, --verbose         Verbose Mode""")
+  -s, -silent           Silent mode""")
 
 
