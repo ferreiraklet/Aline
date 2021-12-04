@@ -35,7 +35,7 @@ Ex:
 
 **Dorking**:
 ```markdown
-# Usage: python3 aline.py -D "site:.com ext:txt" -o outputfile.txt -r 20 -s
+# Usage: python3 aline.py -D "site:.com ext:txt" -o outputfile.txt -r 20
 
 # Help pannel:
   -h, --help            :: Show this help message and exit
