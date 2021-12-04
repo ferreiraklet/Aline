@@ -7,7 +7,7 @@
 
 <h3 align="center">Aline's main purpose is to make <a href="https://en.wikipedia.org/wiki/Google_hacking">Google Dorks</a> while, at the same time, be able to download the data recieved from those determined searches.</h3>
 
-<img src="https://cdn.discordapp.com/attachments/307281507431481344/904444564377591889/unknown.png">
+<img align="center" src="https://cdn.discordapp.com/attachments/307281507431481344/904444564377591889/unknown.png">
 
 ## - Installation & Requirements:
 ```
@@ -31,9 +31,9 @@
 
 **Dorking**:
 ```markdown
-Usage: python3 aline.py -D "site:.com ext:txt" -o outputfile.txt -r 20 -s
+# Usage: python3 aline.py -D "site:.com ext:txt" -o outputfile.txt -r 20 -s
 
-Help pannel:
+# Help pannel:
   -h, --help            :: Show this help message and exit
   
   -d DOMAIN, --domain DOMAIN
