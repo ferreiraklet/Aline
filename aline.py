@@ -15,7 +15,6 @@ class AlineDownloader:
     parser.add_argument("-D","--dorks", help="Dorks")
     parser.add_argument("-o","--output", help="Output file", required=False)
     parser.add_argument("-r","--range", help="Range, Default 50")
-    parser.add_argument("-l","--links", help="large dork with file")
     parser2 = parser.add_mutually_exclusive_group()
     parser.add_argument("-s","-silent", help="Silent mode",action="store_true")
     parser2.add_argument("-v", "--verbose", action="store_true", help="Verbose Mode")
@@ -33,7 +32,6 @@ class AlineDownloader:
         else:
             self.range = False
         self.silent = self.args.s
-        self.links = self.args.links
 
     def tostart(self):
         print('''
@@ -104,7 +102,21 @@ class AlineDownloader:
             starttime = datetime.datetime.now()
             print(f"\033[1;32m[+]\033[0;0m Started Time: {starttime}")
 
-            user_agents = ["Mozilla/5.0 (Windows NT 6.1; WOW64; rv:45.0) Gecko/20100101 Firefox/45.0", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0"]
+            user_agents = [
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:38.0) Gecko/20100101 Firefox/38.0",
+            "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:38.0) Gecko/20100101 Firefox/38.0",
+            "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36",
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/601.3.9 (KHTML, like Gecko) Version/9.0.2 Safari/601.3.9",
+            "Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.155 Safari/537.36",
+            "Mozilla/5.0 (Windows NT 5.1; rv:40.0) Gecko/20100101 Firefox/40.0",
+            "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; Trident/4.0; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)",
+            "Mozilla/5.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+            "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 2.0.50727)",
+            "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0",
+            "Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36",
+            "Opera/9.80 (Windows NT 6.2; Win64; x64) Presto/2.12.388 Version/12.17",
+            "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:45.0) Gecko/20100101 Firefox/45.0",
+            "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0"]
             random.shuffle(user_agents)
             headers = {"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "User-Agent": user_agents[0]}
 
@@ -156,7 +168,21 @@ class AlineDownloader:
             starttime = datetime.datetime.now()
             print(f"\033[1;32m[+]\033[0;0m Started Time: {starttime}")
 
-            user_agents = ["Mozilla/5.0 (Windows NT 6.1; WOW64; rv:45.0) Gecko/20100101 Firefox/45.0", "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0"]
+            user_agents = [
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:38.0) Gecko/20100101 Firefox/38.0",
+            "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:38.0) Gecko/20100101 Firefox/38.0",
+            "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36",
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/601.3.9 (KHTML, like Gecko) Version/9.0.2 Safari/601.3.9",
+            "Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.155 Safari/537.36",
+            "Mozilla/5.0 (Windows NT 5.1; rv:40.0) Gecko/20100101 Firefox/40.0",
+            "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; Trident/4.0; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)",
+            "Mozilla/5.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+            "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 2.0.50727)",
+            "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0",
+            "Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36",
+            "Opera/9.80 (Windows NT 6.2; Win64; x64) Presto/2.12.388 Version/12.17",
+            "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:45.0) Gecko/20100101 Firefox/45.0",
+            "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0"]
             random.shuffle(user_agents)
             headers = {"Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", "User-Agent": user_agents[0]}
             # withopen
@@ -230,7 +256,7 @@ class AlineDownloader:
                         pass
 
                 end = datetime.datetime.now()
-                print(f"\033[1;31m[-]\033[0;0m Ended Time: {end}")
+                print(f"\033[1;31m[-]\033[0;0m Finished! (ツ) Ended Time: {end}")
 
             except KeyboardInterrupt:
                 print("\nExiting...¯\_(ツ)_/¯ ")
@@ -263,7 +289,23 @@ class AlineDownloader:
                 if "+" in self.dorks:
                     self.dorks = self.dorks.replace("+"," ")
 
-                for dork in search(self.dorks, tld="com", lang="en", num=limit, start=0, stop=limit, pause=2):
+                user_agents = [
+                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.10; rv:38.0) Gecko/20100101 Firefox/38.0",
+                "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:38.0) Gecko/20100101 Firefox/38.0",
+                "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.112 Safari/537.36",
+                "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_2) AppleWebKit/601.3.9 (KHTML, like Gecko) Version/9.0.2 Safari/601.3.9",
+                "Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.155 Safari/537.36",
+                "Mozilla/5.0 (Windows NT 5.1; rv:40.0) Gecko/20100101 Firefox/40.0",
+                "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1; Trident/4.0; .NET CLR 2.0.50727; .NET CLR 3.0.4506.2152; .NET CLR 3.5.30729)",
+                "Mozilla/5.0 (compatible; MSIE 6.0; Windows NT 5.1)",
+                "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 2.0.50727)",
+                "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:31.0) Gecko/20100101 Firefox/31.0",
+                "Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/46.0.2490.86 Safari/537.36",
+                "Opera/9.80 (Windows NT 6.2; Win64; x64) Presto/2.12.388 Version/12.17",
+                "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:45.0) Gecko/20100101 Firefox/45.0",
+                "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0"]
+                random.shuffle(user_agents)
+                for dork in search(self.dorks, tld="com", lang="en", num=limit, start=0, stop=limit, pause=2, user_agent=user_agents[0]):
                     cont += 1
                     print(dork)
                     log_save.append(dork)
@@ -275,7 +317,7 @@ class AlineDownloader:
                                 l.write(f"{item}\n")
                     except:
                         pass
-                print("\033[1;32m[+]\033[0;0m Finished!")
+                print("\033[1;32m[+]\033[0;0m Finished! (ツ)")
 
             except KeyboardInterrupt:
                 print("\nExiting...¯\_(ツ)_/¯ ")
@@ -287,7 +329,7 @@ class AlineDownloader:
                 print(f"\033[1;31m[!]\033[0;0m - Something went wrong!\nError: {str(ex)}")
                 sys.exit()
 
-    def ldorks(self):
+    """def ldorks(self):
         # print("Starting...\n")
         self.tostart()
 
@@ -331,10 +373,10 @@ class AlineDownloader:
                 sys.exit()
         except FileNotFoundError:
             print("\033[1;31m[!]\033[0;0m No file was specified! No log file was created.");exit(1)
-                   
+                   """
 
 if len(sys.argv) <= 1:
-    print("""usage: aline.py [-h] [-d DOMAIN] [-f FILETYPE] [-F FILE] [-D DORKS] [-o OUTPUT] [-r RANGE] [-s S] [-v]
+    print("""usage: aline.py [-h] [-d DOMAIN] [-f FILETYPE] [-F FILE] [-D DORKS] [-o OUTPUT] [-r RANGE] [-s] [-v]
 
 Aline file downloader automator!
 
@@ -351,7 +393,7 @@ optional arguments:
                         Output file
   -r RANGE, --range RANGE
                         Range, Default 50
-  -s S, -silent S       Silent mode
+  -s, -silent           Silent mode
   -v, --verbose         Verbose Mode""")
     sys.exit()
 
@@ -378,7 +420,7 @@ elif A.links:
     A.ldorks()
 
 else:
-    print("""usage: aline.py [-h] [-d DOMAIN] [-f FILETYPE] [-F FILE] [-D DORKS] [-o OUTPUT] [-r RANGE] [-s S] [-v]
+    print("""usage: aline.py [-h] [-d DOMAIN] [-f FILETYPE] [-F FILE] [-D DORKS] [-o OUTPUT] [-r RANGE] [-s] [-v]
 
 Aline file downloader automator!
 
@@ -395,7 +437,7 @@ optional arguments:
                         Output file
   -r RANGE, --range RANGE
                         Range, Default 50
-  -s S, -silent S       Silent mode
+  -s, -silent           Silent mode
   -v, --verbose         Verbose Mode""")
 
 
