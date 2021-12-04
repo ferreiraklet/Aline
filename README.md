@@ -1,6 +1,6 @@
 # AlineDorker
 
-## Aline is main porpose is for dorks, as well as downloading links inside files.
+## Aline it's main purpose is for dorks, but it can also be used to download content within links stored in a file.
 
 <img src="https://cdn.discordapp.com/attachments/307281507431481344/904444564377591889/unknown.png">
 
@@ -13,7 +13,7 @@ python3 installed
 
 ## How to use:
 
-**To dork and download filetype files**:
+**To Download content within links inside file**:
 <img src="https://cdn.discordapp.com/attachments/307281507431481344/904425600809304155/unknown.png">
 
 **Reading files and downloading contents**:
@@ -23,9 +23,6 @@ python3 installed
 
 **Dorking**:
 
-<img src="https://cdn.discordapp.com/attachments/307281507431481344/904446499038060584/unknown.png">
-
-OR -D "site:.com.br intext:...."
 
 
 ## This project is for educational porposes only! I do not support any illegal activities!.
