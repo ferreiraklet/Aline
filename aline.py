@@ -61,7 +61,7 @@ class AlineDownloader:
     def aline(self):
         url = self.domain
         ext = self.filetype
-
+        self.tostart()
         print("\033[0;34m[*] - \033[0;0mStarting Aline...")
         try:
             if url.startswith("http"):
