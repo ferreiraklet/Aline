@@ -228,7 +228,7 @@ class AlineDownloader:
                 if "+" in self.dorks:
                     self.dorks = self.dorks.replace("+"," ")
 
-                for dork in search(self.dorks, tld="com", lang="en", num_results=limit, start=0, pause=2):
+                for dork in search(self.dorks, tld="com", lang="en", stop=limit, start=0, pause=2):
                     cont += 1
                     print(f"{cont} \033[95m[+] - \033[0;0m{dork}")
                     log_save.append(dork)
@@ -292,7 +292,7 @@ class AlineDownloader:
                 "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:45.0) Gecko/20100101 Firefox/45.0",
                 "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:41.0) Gecko/20100101 Firefox/41.0"]
                 random.shuffle(user_agents)
-                for dork in search(self.dorks, tld="com", lang="en", num_results=limit, start=0, pause=2, user_agent=user_agents[0]):
+                for dork in search(self.dorks, tld="com", lang="en", stop=limit, start=0, user_agent=user_agents[0]):
                     cont += 1
                     # print(dork)
                     log_save.append(dork)
