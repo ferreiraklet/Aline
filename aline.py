@@ -73,7 +73,7 @@ class AlineDownloader:
 
             files = []
             limit = int(input("\033[1;31m[-] -\033[0;0m Please specify a limit for searching: "))
-            for result in search(f"site:{url} ext:{ext}", lang="en", start=0, stop=limit, pause=2,num=limit):
+            for result in search(f"site:{url} ext:{ext}", lang="en", start=0, stop=limit, pause=2):
                 if result.endswith(f".{ext}"):
                     files.append(result)
 
