@@ -28,7 +28,10 @@ class AlineDownloader:
         self.file = self.args.file
         self.dorks = self.args.dorks
         self.outputfile = self.args.output
-        self.pause = int(self.args.pause)
+        if self.args.pause:
+            self.pause = int(self.args.pause)
+        else:
+            self.pause = False
         if self.args.range:
             self.range = int(self.args.range)
         else:
